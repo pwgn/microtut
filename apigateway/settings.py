@@ -1,2 +1,2 @@
 
-DISCOVERY_SERVICE_URL = 'localhost:6100'
+DISCOVERY_SERVICE_URL = 'localhost:6100/discoveryservice'
