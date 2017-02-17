@@ -15,4 +15,5 @@ if __name__ == "__main__":
         port = sys.argv[1]
 
     app.register_blueprint(bp)
+    app.config.from_object('settings')
     app.run(port=port)
