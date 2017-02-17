@@ -7,10 +7,12 @@ bp = Blueprint('discoveryservice', __name__, url_prefix='/discoveryservice')
 
 @bp.route('/<service_id>', methods=['get'])
 def get_service(service_id):
+    print 'Get service: ' + service_id
     return 'Get service: ' + service_id
 
 @bp.route('/<service_id>', methods=['PUT'])
 def register_service(service_id):
+    print 'Register service: ' + service_id
     return 'Register service: ' + service_id
 
 
