@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/styles.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>MicroTut</title>
+  </head>
+
+  <body class="grey lighten-4">
+
+    <!-- Side nav -->
+    <ul id="slide-out" class="side-nav">
+      <li><a class="subheader">Articles</a></li>
+
+      <li><a class="waves-effect">
+          Article 1
+      </a></li>
+
+      <li><a class="waves-effect">
+          Article 2
+      </a></li>
+
+      <li><a class="waves-effect">
+          Article 3
+      </a></li>
+
+      </br>
+    </ul>
+    <!-- Side nav end -->
+
+    <header>
+      <div class="navbar-fixed">
+	<nav class="top-nav blue">
+
+          <!-- side nav button -->
+          <p data-activates="slide-out" class="button-collapse">
+            <i class="material-icons white-text">menu</i>
+          </p>
+
+
+	  <div class="nav-wrapper">
+
+            <a class="brand-logo">
+              MicroTut
+            </a>
+
+	  </div>
+	</nav>
+      </div>
+    </header>
+
+    <main>
+
+      <div id="content-container-main"></div>
+
+    </main>
+
+    <!-- Third party libraries -->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/mustache/mustache.js"></script>
+    <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.js"></script>
+
+    <!-- Project scripts -->
+    <script type="text/javascript" src="js/MainView.js" async></script>
+    <script type="text/javascript" src="js/MainPresenter.js" async></script>
+    <script type="text/javascript" src="js/app.js" async></script>
+
+  </body>
+</html>

@@ -1,0 +1,31 @@
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    display: block;
+    margin-bottom: 10%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+#element-message-view-content .row {
+    margin-bottom: 0px;
+}
+
+@media only screen and (max-width : 992px) {
+
+    main {
+	display: block;
+	margin-bottom: 30%;
+    }
+
+}
