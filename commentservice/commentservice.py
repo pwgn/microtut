@@ -1,14 +1,14 @@
 import sys
 import requests
 
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, jsonify
 app = Flask(__name__)
 bp = Blueprint('comments', __name__, url_prefix='/comments')
 
 
 @bp.route("/", methods=["GET"])
 def list():
-    return "Here are all my comments"
+    return jsonify("Here are all my comments")
 
 if __name__ == "__main__":
     port = 6001
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     discoveryServiceRequest = 'http://' + app.config['DISCOVERY_SERVICE_URL'] + '/' + bp.name
     discoveryServiceData = {
         'service_id': bp.name,
-        'ip': 'localhost',
+        'host': 'localhost',
         'port': port
         }
     response = requests.put(discoveryServiceRequest, json = discoveryServiceData)
