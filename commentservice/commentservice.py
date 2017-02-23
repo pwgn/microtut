@@ -24,6 +24,6 @@ if __name__ == "__main__":
         'ip': 'localhost',
         'port': port
         }
-    response = requests.put(discoveryServiceRequest, data = discoveryServiceData)
+    response = requests.put(discoveryServiceRequest, json = discoveryServiceData)
 
     app.run(port=port)
