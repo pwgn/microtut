@@ -11,9 +11,7 @@ class Registry():
         return self.services
 
     def register_service(self, service_id, service):
-        print('Registry.register_service:', service_id, service)
         self.services[service_id] = service
 
     def deregister_service(self, service_id):
-        print('Registry.deregister_service:', service_id)
         self.services.pop(service_id)

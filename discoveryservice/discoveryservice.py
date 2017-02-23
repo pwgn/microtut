@@ -9,16 +9,19 @@ registry = Registry()
 
 @bp.route('/<service_id>', methods=['GET'])
 def get_service(service_id):
+    print('get_service:', service_id)
     service = registry.get_service(service_id)
-    print(request.get_json())
-    return jsonify(service)
+
+    return jsonify('ok')
 
 @bp.route('/<service_id>', methods=['PUT'])
 def register_service(service_id):
-    print('register services')
-    registry.register_service(service_id, request.get_json())
-    return 'Register service: ' + service_id
+    print('register_service:', service_id)
+    print('service_data:', request.get_json())
 
+    registry.register_service(service_id, request.get_json())
+
+    return jsonify('ok')
 
 if __name__ == '__main__':
     port = 6100
