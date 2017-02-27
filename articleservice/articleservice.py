@@ -27,7 +27,7 @@ if __name__ == "__main__":
         'service_id': bp.name,
         'host': 'localhost',
         'port': port
-        }
+    }
     response = requests.put(discoveryServiceRequest, json = discoveryServiceData)
 
     # Start app
