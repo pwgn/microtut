@@ -11,5 +11,11 @@ def get_article(article_id):
     article_service_url = get_service_url(discovery_url, 'articles', article_id)
     comments_service_url = get_service_url(discovery_url, 'comments', article_id)
 
-    print('get full article', article_service_url, comments_service_url)
-    return jsonify('hi')
+    article = requests.get(article_service_url)
+    comments = requests.get(comments_service_url)
+
+    full_article = {'article': article.json(),
+                    'comments': comments.json()}
+
+    print('webapi_article:', full_article)
+    return jsonify(full_article)
