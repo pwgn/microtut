@@ -2,13 +2,17 @@ import sys
 import requests
 
 from flask import Flask, Blueprint, jsonify
+from articles import Articles
 app = Flask(__name__)
 bp = Blueprint('articles', __name__, url_prefix='/articles')
 
+articles = Articles()
 
 @bp.route("/", methods=["GET"])
 def list():
-    return jsonify("Here are all my articles")
+    arts = articles.list()
+    print('articles:', arts)
+    return jsonify(arts)
 
 if __name__ == "__main__":
     port = 6000
