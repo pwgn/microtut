@@ -2,6 +2,7 @@ import sys
 import requests
 
 from core import get_service_url
+from webapi import bp as webapi_blueprint
 from flask import Flask, Blueprint, request, jsonify
 app = Flask(__name__)
 bp = Blueprint('apigateway', __name__, url_prefix='/api')
@@ -41,5 +42,6 @@ if __name__ == "__main__":
         port = sys.argv[1]
 
     app.register_blueprint(bp)
+    app.register_blueprint(webapi_blueprint)
     app.config.from_object('settings')
     app.run(port=port)
