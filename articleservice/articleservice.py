@@ -25,8 +25,9 @@ def add():
 
 @bp.route("/<article_id>", methods=["GET"])
 def get(article_id):
-    arts = articles.get(article_id)
-    return jsonify(arts)
+    article = articles.get(article_id)
+    print('get_article:', article)
+    return jsonify(article)
 
 if __name__ == "__main__":
     port = 6000
