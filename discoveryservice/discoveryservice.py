@@ -12,7 +12,7 @@ def get_service(service_id):
     print('get_service:', service_id)
     service = registry.get_service(service_id)
 
-    return jsonify('ok')
+    return jsonify(service)
 
 @bp.route('/<service_id>', methods=['PUT'])
 def register_service(service_id):
