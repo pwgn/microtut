@@ -5,8 +5,10 @@ from flask import Flask, Blueprint, request, jsonify
 app = Flask(__name__)
 bp = Blueprint('apigateway', __name__, url_prefix='/api')
 
-@bp.route("/<service_id>", defaults={'path': ''})
-@bp.route("/<service_id>/<path:path>")
+allowed_methods = ['GET', 'POST', 'PUT']
+
+@bp.route("/<service_id>", defaults={'path': ''}, methods=allowed_methods)
+@bp.route("/<service_id>/<path:path>", methods=allowed_methods)
 def route(service_id, path):
 
     # Get the service from the service registry
@@ -28,6 +30,8 @@ def route(service_id, path):
     service_response = None
     if request.method == 'GET':
         service_response = requests.get(service_request_url, json = request.get_json())
+    elif request.method == 'POST':
+        service_response = requests.post(service_request_url, json = request.get_json())
     elif request.method == 'PUT':
         service_response = requests.put(service_request_url, json = request.get_json())
 

@@ -5,13 +5,15 @@ class Articles():
     def __init__(self):
         self.articles = {}
 
-    def add(self, title, content):
-        article_id = str(time.time())
-        self.articles[article_id] = {
+    def add(self, article_data):
+        article_id = str(time.time()).replace('.', '')
+        article = {
             'id': article_id,
-            'title': title,
-            'content': content
+            'title': article_data['title'],
+            'content': article_data['content']
         }
+        self.articles[article_id] = article
+        return article
 
     def get(self, article_id):
         return self.articles[article_id]

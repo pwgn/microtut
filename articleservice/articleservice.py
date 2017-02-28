@@ -1,18 +1,27 @@
 import sys
 import requests
 
-from flask import Flask, Blueprint, jsonify
+from flask import Flask, Blueprint, request, jsonify
 from articles import Articles
 app = Flask(__name__)
 bp = Blueprint('articles', __name__, url_prefix='/articles')
 
 articles = Articles()
 
+
+
 @bp.route("/", methods=["GET"])
 def list():
     arts = articles.list()
     print('articles:', arts)
     return jsonify(arts)
+
+@bp.route("/", methods=["POST"])
+def add():
+    json_data = request.get_json()
+    article = articles.add(json_data)
+    print('added_article:', article)
+    return jsonify(article)
 
 @bp.route("/<article_id>", methods=["GET"])
 def get(article_id):
