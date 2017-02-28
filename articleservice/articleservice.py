@@ -14,6 +14,11 @@ def list():
     print('articles:', arts)
     return jsonify(arts)
 
+@bp.route("/<article_id>", methods=["GET"])
+def get(article_id):
+    arts = articles.get(article_id)
+    return jsonify(arts)
+
 if __name__ == "__main__":
     port = 6000
 
