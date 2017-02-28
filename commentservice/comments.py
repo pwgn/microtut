@@ -12,15 +12,16 @@ class Comments():
             'message': data['message']
         }
 
-        if self.threads.haskey(thread_id):
+        if thread_id in self.threads:
             self.threads[thread_id].append(message)
         else:
             self.threads[thread_id] = [message]
 
         return message
 
-    def get(self, article_id):
-        pass
+    def get_thread(self, thread_id):
+        thread = []
+        if thread_id in self.threads:
+            thread = self.threads[thread_id]
 
-    def list(self):
-        pass
+        return thread

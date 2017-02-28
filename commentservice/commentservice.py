@@ -1,14 +1,26 @@
 import sys
 import requests
 
-from flask import Flask, Blueprint, jsonify
+from flask import Flask, Blueprint, request, jsonify
+from comments import Comments
 app = Flask(__name__)
 bp = Blueprint('comments', __name__, url_prefix='/comments')
 
+comments = Comments()
 
-@bp.route("/", methods=["GET"])
-def list():
-    return jsonify("Here are all my comments")
+@bp.route("/<thread_id>", methods=["GET"])
+def get_thread(thread_id):
+    thread = comments.get_thread(thread_id)
+    print('get_thread:', thread_id, thread)
+    return jsonify({thread_id: thread})
+
+@bp.route("/<thread_id>", methods=["PUT"])
+def add(thread_id):
+    json_data = request.get_json()
+    added_comment = comments.add(thread_id, json_data)
+    print('added_comment:', added_comment)
+    return jsonify({thread_id: added_comment})
+
 
 if __name__ == "__main__":
     port = 6001

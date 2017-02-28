@@ -8,8 +8,6 @@ bp = Blueprint('articles', __name__, url_prefix='/articles')
 
 articles = Articles()
 
-
-
 @bp.route("/", methods=["GET"])
 def list():
     arts = articles.list()
