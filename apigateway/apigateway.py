@@ -1,7 +1,7 @@
 import sys
 import requests
 
-from flask import Flask, Blueprint, request
+from flask import Flask, Blueprint, request, jsonify
 app = Flask(__name__)
 bp = Blueprint('apigateway', __name__, url_prefix='/api')
 
@@ -31,7 +31,9 @@ def route(service_id, path):
     elif request.method == 'PUT':
         service_response = requests.put(service_request_url, json = request.get_json())
 
-    return service_response.json();
+    print ('service_response:', service_response.json())
+
+    return jsonify(service_response.json());
 
 if __name__ == "__main__":
     port = 6101
