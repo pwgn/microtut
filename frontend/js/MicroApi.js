@@ -24,7 +24,22 @@ MicroApi.prototype.getArticle = function(articleId) {
 
 };
 
-MicroApi.prototype.addArticle = function(title, content) {
+MicroApi.prototype.addArticle = function(title, content,
+                                         successCallback, errorCallback) {
+    var data = {
+        title: title,
+        content: content
+    };
+
+    var endpoint = this.url + '/api/articles';
+    $.ajax({
+        url: endpoint,
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: successCallback,
+        error: errorCallback
+    });
 
 };
 

@@ -13,9 +13,22 @@ MainPresenter.prototype.start = function() {
 MainPresenter.prototype.listArticles = function() {
     this.apiClient.listArticles(
         function(result) {
+            this.view.showArticles(result);
+        }.bind(this),
+        function(error) {
+            console.log(error);
+        });
+};
+
+MainPresenter.prototype.addArticle = function(title, content) {
+    this.apiClient.addArticle(
+        title, content,
+        function(result) {
+
             console.log(result);
         },
         function(error) {
             console.log(error);
-        });
-}
+        }
+    );
+};

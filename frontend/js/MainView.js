@@ -2,7 +2,18 @@ function MainView(document) {
     this.presenter = null;
 
     $('#button-write-article').click('on', function() {
-        $('#modal-write-article').modal('open');
+        var modalWriteArticle = $('#modal-write-article')
+        modalWriteArticle.modal('open');
+
+        $('#modal-publish-article').click(function() {
+            var articleTitle = $('#modal-article-title').val();
+            var articleContent = $('#modal-article-content').val();
+
+            console.log(articleTitle, articleContent);
+            this.presenter.addArticle(articleTitle, articleContent);
+
+            modalWriteArticle.modal('close');
+        }.bind(this));
     }.bind(this))
 
     $('.modal').modal();
