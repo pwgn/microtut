@@ -13,7 +13,8 @@ articles = Articles()
 def list():
     arts = articles.list()
     print('articles:', arts)
-    return jsonify(arts)
+    artsList = [a for a in arts.values()]
+    return jsonify({'articles': artsList})
 
 @bp.route("/", methods=["POST"])
 def add():

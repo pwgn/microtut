@@ -13,7 +13,7 @@ MainPresenter.prototype.start = function() {
 MainPresenter.prototype.listArticles = function() {
     this.apiClient.listArticles(
         function(result) {
-            this.view.showArticles(result);
+            this.view.showArticles(result['articles']);
         }.bind(this),
         function(error) {
             console.log(error);

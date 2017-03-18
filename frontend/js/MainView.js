@@ -24,9 +24,10 @@ MainView.prototype.setPresenter = function(presenter) {
 };
 
 MainView.prototype.showArticles = function(articles) {
-    $.get('views/listArticlesView.mustache', function(view) {
+    console.log('showArticles:', articles);
 
-	var renderedView = Mustache.render(view, {articles: [{title: 'hello'}]});
+    $.get('views/listArticlesView.mustache', function(view) {
+	var renderedView = Mustache.render(view, {articles: articles});
 
 	$('#content-container-main').html(renderedView);
 
