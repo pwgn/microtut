@@ -43,18 +43,20 @@
         <h4>Write article</h4>
 
         <form>
-          <div class="row">
-            Title
+          <div class="input-field">
+            <input id="modal-article-title" type="text" class="validate">
+            <label for="modal-article-title">Title</label>
           </div>
-          <div class="row">
-            Content
+          <div class="input-field">
+            <textarea id="modal-article-content" class="materialize-textarea"></textarea>
+            <label for="modal-article-content">Content</label>
           </div>
         </form>
       </div>
 
       <div class="modal-footer">
         <a id="modal-publish-article" class="modal-action wawes-effect waves-green, btn-flat">Publish article</a>
-        <a href="#" class="modal-action wawes-effect waves-green, btn-flat">Cancel</a>
+        <a href="#!" class="modal-action modal-close wawes-effect waves-green btn-flat">Cancel</a>
       </div>
     </div>
 
