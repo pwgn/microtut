@@ -1,23 +1,25 @@
 function MainView(document) {
     this.presenter = null;
 
-    this.loadViewContentMainView();
+    $('#button-write-article').click('on', function() {
+        $('#modal-write-article').modal('open');
+    }.bind(this))
+
+    $('.modal').modal();
 }
 
-MainView.prototype.loadViewContentMainView = function() {
+MainView.prototype.setPresenter = function(presenter) {
+    this.presenter = presenter;
+};
 
-    $.get('views/contentMainView.mustache', function(view) {
+MainView.prototype.showArticles = function(articles) {
+    $.get('views/listArticlesView.mustache', function(view) {
 
-	var renderedView = Mustache.render(view, {});
+	var renderedView = Mustache.render(view, {articles: [{title: 'hello'}]});
 
 	$('#content-container-main').html(renderedView);
 
 	this.progressBar = $('#progress-bar');
 
     }.bind(this));
-
-};
-
-MainView.prototype.setPresenter = function(presenter) {
-    this.presenter = presenter;
-};
+}
