@@ -1,7 +1,9 @@
 import sys
 
 from flask import Flask, Blueprint, jsonify, request
+from flask_cors import CORS
 from registry import Registry
+
 app = Flask(__name__)
 bp = Blueprint('discoveryservice', __name__, url_prefix='/discoveryservice')
 
@@ -30,4 +32,10 @@ if __name__ == '__main__':
 
     app.register_blueprint(bp)
     app.config.from_object('settings')
+
+    if app.debug:
+        CORS(app, resources=r'/*',
+                 allow_headers=['Content-Type', 'Authentication'],
+                 supports_credentials=True)
+
     app.run(port=port)

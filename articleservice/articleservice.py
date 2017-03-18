@@ -2,6 +2,7 @@ import sys
 import requests
 
 from flask import Flask, Blueprint, request, jsonify
+from flask_cors import CORS
 from articles import Articles
 app = Flask(__name__)
 bp = Blueprint('articles', __name__, url_prefix='/articles')
@@ -37,6 +38,11 @@ if __name__ == "__main__":
     # Setup app
     app.register_blueprint(bp)
     app.config.from_object('settings')
+
+    if app.debug:
+        CORS(app, resources=r'/*',
+                 allow_headers=['Content-Type', 'Authentication'],
+                 supports_credentials=True)
 
     # Register to discovery service
     discoveryServiceRequest = 'http://' + app.config['DISCOVERY_SERVICE_URL'] + '/' + bp.name

@@ -4,6 +4,8 @@ import requests
 from core import get_service_url
 from webapi import bp as webapi_blueprint
 from flask import Flask, Blueprint, request, jsonify
+from flask_cors import CORS
+
 app = Flask(__name__)
 bp = Blueprint('apigateway', __name__, url_prefix='/api')
 
@@ -44,4 +46,10 @@ if __name__ == "__main__":
     app.register_blueprint(bp)
     app.register_blueprint(webapi_blueprint)
     app.config.from_object('settings')
+
+    if app.debug:
+        CORS(app, resources=r'/*',
+                 allow_headers=['Content-Type', 'Authentication'],
+                 supports_credentials=True)
+
     app.run(port=port)
