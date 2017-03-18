@@ -7,6 +7,7 @@ function MicroApi(host, port) {
     this.port = port | DEFAULT_PORT;
 
     this.url = 'http://' + this.host + ':' + this.port;
+
 }
 
 MicroApi.prototype.listArticles = function(successCallback, errorCallback) {
