@@ -24,9 +24,8 @@ MainPresenter.prototype.addArticle = function(title, content) {
     this.apiClient.addArticle(
         title, content,
         function(result) {
-
-            console.log(result);
-        },
+            this.view.appendArticle(result);
+        }.bind(this),
         function(error) {
             console.log(error);
         }

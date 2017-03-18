@@ -34,4 +34,10 @@ MainView.prototype.showArticles = function(articles) {
 	this.progressBar = $('#progress-bar');
 
     }.bind(this));
-}
+};
+
+MainView.prototype.appendArticle = function(article) {
+    console.log('Append article:', article);
+    var content = '<a href="#!" class="collection-item">' + article['title'] + '</a>'
+    $("#articles-container .collection").append(content);
+};
