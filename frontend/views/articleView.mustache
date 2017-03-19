@@ -1,15 +1,54 @@
-<div id="content-container-main-view" class="container">
+<div id="article" class="container">
 
-  <div id="content-main-view-article-title" class="container">
-    Title
+  <div class="card">
+    <div class="card-content">
+
+      <div class="section">
+        <div id="article-title">
+          <h5>{{article.title}}</h5>
+        </div>
+      </div>
+
+      <div class="section">
+        <div id="content-main-view-article-content" class="container">
+          {{article.content}}
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div id="content-main-view-article-content" class="container">
-    Content
+  <div class="section"/>
+  <h5>Comments</h5>
+
+  <div id="comments">
+    <div class="card">
+      <div class="card-content container">
+        First comment
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-content container">
+        Second comment
+      </div>
+    </div>
   </div>
 
-  <div id="content-main-view-comments" class="container">
-    comments
+
+
+  <div class="card">
+    <div class="card-content">
+      <div id="article-write-comment">
+        <form>
+          <div class="input-field">
+            <input id="article-new-comment" type="text" class="validate">
+            <label for="article-new-comment">Write comment</label>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
 </div>

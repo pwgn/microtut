@@ -6,7 +6,6 @@ function MainPresenter(apiClient, view) {
 }
 
 MainPresenter.prototype.start = function() {
-    console.log('start');
     this.listArticles();
 };
 

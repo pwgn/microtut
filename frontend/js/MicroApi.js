@@ -19,8 +19,8 @@ MicroApi.prototype.listArticles = function(successCallback, errorCallback) {
     });
 };
 
-MicroApi.prototype.getArticle = function(articleId) {
-    var endpoint = this.url + '/api/articles/' + articleId;
+MicroApi.prototype.getArticle = function(articleId, successCallback, errorCallback) {
+    var endpoint = this.url + '/web/api/articles/' + articleId;
     $.ajax({
         url: endpoint,
         type: 'GET',

@@ -7,12 +7,20 @@ function ArticlePresenter(articleId, apiClient, view) {
 }
 
 ArticlePresenter.prototype.start = function() {
-    console.log('start');
     this.getArticle(this.articleId);
 };
 
 ArticlePresenter.prototype.getArticle = function(articleId) {
     console.log('getArticle:', articleId);
+
+    this.apiClient.getArticle(
+        articleId,
+        function(result) {
+            this.view.showArticle(result);
+        }.bind(this),
+        function(error) {
+            console.log(error);
+        });
     this.view.showArticle();
 };
 

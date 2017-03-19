@@ -7,8 +7,9 @@ ArticleView.prototype.setPresenter = function(presenter) {
 };
 
 ArticleView.prototype.showArticle = function(article) {
+    console.log('showArticle:', article);
     $.get('views/articleView.mustache', function(view) {
-	var renderedView = Mustache.render(view, {});
+	var renderedView = Mustache.render(view, article);
 
 	$('#content-container-main').html(renderedView);
     }.bind(this));
