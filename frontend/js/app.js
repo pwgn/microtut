@@ -1,8 +1,6 @@
 
 (function() {
 
-    $(".button-collapse").sideNav();
-
     var apiClient = new MicroApi();
 
     var mainView = new MainView(document);

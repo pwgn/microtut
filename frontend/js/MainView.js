@@ -30,9 +30,6 @@ MainView.prototype.showArticles = function(articles) {
 	var renderedView = Mustache.render(view, {articles: articles});
 
 	$('#content-container-main').html(renderedView);
-
-	this.progressBar = $('#progress-bar');
-
     }.bind(this));
 };
 
