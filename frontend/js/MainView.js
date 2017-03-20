@@ -35,6 +35,6 @@ MainView.prototype.showArticles = function(articles) {
 
 MainView.prototype.appendArticle = function(article) {
     console.log('Append article:', article);
-    var content = '<a href="#!" class="collection-item">' + article['title'] + '</a>'
+    var content = '<a href="/article.html?id=' + article['id'] + '" class="collection-item">' + article['title'] + '</a>'
     $("#articles-container .collection").append(content);
 };
