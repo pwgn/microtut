@@ -22,30 +22,31 @@
   <h5>Comments</h5>
 
   <div id="comments">
+    {{#comments.thread}}
     <div class="card">
       <div class="card-content container">
-        First comment
+        {{message}}
       </div>
     </div>
-
-
-    <div class="card">
-      <div class="card-content container">
-        Second comment
-      </div>
-    </div>
-  </div>
-
-
+    {{/comments.thread}}
 
   <div class="card">
     <div class="card-content">
-      <div id="article-write-comment">
+      <div id="article-write-comment" class="row">
         <form>
-          <div class="input-field">
-            <input id="article-new-comment" type="text" class="validate">
-            <label for="article-new-comment">Write comment</label>
+          <div class="input-field col l11">
+            <input id="input-field-new-comment" type="text" class="validate">
+            <label for="input-field-new-comment">Write comment</label>
           </div>
+
+          <div class="input-field col l1">
+            <div class="input-field col l12">
+              <a id="button-send-comment" class="btn-flat waves-effect">
+                <i class="material-icons red-text">send</i>
+              </a>
+            </div>
+          </div>
+
         </form>
       </div>
     </div>

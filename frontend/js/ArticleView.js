@@ -19,6 +19,11 @@ ArticleView.prototype.showArticle = function(article) {
 
 ArticleView.prototype.appendComment = function(comment) {
     console.log('appendComment:', comment);
+    $.get('views/commentCardView.mustache', function(view) {
+	var renderedView = Mustache.render(view, comment);
+
+	$('#comments').append(renderedView);
+    }.bind(this));
 };
 
 ArticleView.prototype._setupButtonListeners = function() {
