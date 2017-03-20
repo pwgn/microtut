@@ -6,8 +6,13 @@ function MainView(document) {
         modalWriteArticle.modal('open');
 
         $('#modal-publish-article').click(function() {
-            var articleTitle = $('#modal-article-title').val();
-            var articleContent = $('#modal-article-content').val();
+            var inputFieldTitle = $('#modal-article-title');
+            var inputFieldContent = $('#modal-article-content');
+            var articleTitle = inputFieldTitle.val();
+            var articleContent = inputFieldContent.val();
+
+            inputFieldTitle.val('');
+            inputFieldContent.val('');
 
             console.log(articleTitle, articleContent);
             this.presenter.addArticle(articleTitle, articleContent);
