@@ -21,9 +21,17 @@ ArticlePresenter.prototype.getArticle = function(articleId) {
         function(error) {
             console.log(error);
         });
-    this.view.showArticle();
 };
 
 ArticlePresenter.prototype.addComment = function(message) {
-
+    console.log('addComment:', message);
+    this.apiClient.addComment(
+        this.articleId, message,
+        function(result) {
+            console.log('added comment:', result);
+            this.view.appendComment(result['comment']);
+        }.bind(this),
+        function(error) {
+            console.log(error);
+        });
 };
