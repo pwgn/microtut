@@ -48,6 +48,19 @@ MicroApi.prototype.addArticle = function(title, content,
 
 };
 
-MicroApi.prototype.addComment = function(articleId, message) {
+MicroApi.prototype.addComment = function(articleId, message,
+                                         successCallback, errorCallback) {
+    var data = {
+        message: message
+    };
 
+    var endpoint = this.url + '/api/comments/' + articleId;
+    $.ajax({
+        url: endpoint,
+        type: 'PUT',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        success: successCallback,
+        error: errorCallback
+    });
 };
