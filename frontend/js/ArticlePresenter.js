@@ -16,10 +16,11 @@ ArticlePresenter.prototype.getArticle = function(articleId) {
     this.apiClient.getArticle(
         articleId,
         function(result) {
+            console.log('getArticle result:', result);
             this.view.showArticle(result);
         }.bind(this),
         function(error) {
-            console.log(error);
+            console.log('getArticle error:', error);
         });
 };
 
@@ -28,10 +29,10 @@ ArticlePresenter.prototype.addComment = function(message) {
     this.apiClient.addComment(
         this.articleId, message,
         function(result) {
-            console.log('added comment:', result);
+            console.log('addComment result:', result);
             this.view.appendComment(result['comment']);
         }.bind(this),
         function(error) {
-            console.log(error);
+            console.log('addComment error:', error);
         });
 };

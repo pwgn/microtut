@@ -30,6 +30,8 @@ ArticleView.prototype._setupButtonListeners = function() {
         var inputField = $('#input-field-new-comment');
         var message = inputField.val();
         inputField.val("");
+
+        console.log('sendComment message:', message);
         this.presenter.addComment(message);
     }.bind(this));
 };

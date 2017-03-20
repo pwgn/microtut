@@ -14,9 +14,9 @@ function MainView(document) {
             inputFieldTitle.val('');
             inputFieldContent.val('');
 
-            console.log(articleTitle, articleContent);
-            this.presenter.addArticle(articleTitle, articleContent);
 
+            console.log('publishArticle:', articleTitle, articleContent);
+            this.presenter.addArticle(articleTitle, articleContent);
             modalWriteArticle.modal('close');
         }.bind(this));
     }.bind(this))
@@ -30,7 +30,6 @@ MainView.prototype.setPresenter = function(presenter) {
 
 MainView.prototype.showArticles = function(articles) {
     console.log('showArticles:', articles);
-
     $.get('views/listArticlesView.mustache', function(view) {
 	var renderedView = Mustache.render(view, {articles: articles});
 
@@ -39,7 +38,7 @@ MainView.prototype.showArticles = function(articles) {
 };
 
 MainView.prototype.appendArticle = function(article) {
-    console.log('Append article:', article);
+    console.log('appendArticle:', article);
     var content = '<a href="/article.html?id=' + article['id'] + '" class="collection-item">' + article['title'] + '</a>'
     $("#articles-container .collection").append(content);
 };
