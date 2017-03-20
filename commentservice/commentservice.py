@@ -13,14 +13,14 @@ comments = Comments()
 def get_thread(thread_id):
     thread = comments.get_thread(thread_id)
     print('get_thread:', thread_id, thread)
-    return jsonify({thread_id: thread})
+    return jsonify({'thread': thread})
 
 @bp.route("/<thread_id>", methods=["PUT"])
 def add(thread_id):
     json_data = request.get_json()
     added_comment = comments.add(thread_id, json_data)
     print('added_comment:', added_comment)
-    return jsonify({thread_id: added_comment})
+    return jsonify({'comment': added_comment})
 
 
 if __name__ == "__main__":
