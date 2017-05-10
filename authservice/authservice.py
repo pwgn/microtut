@@ -17,7 +17,7 @@ def validate():
     return 'ok'
 
 if __name__ == "__main__":
-    port = 8000
+    port = 7000
 
     # Read port from commandline
     if len(sys.argv) >= 2:
@@ -44,7 +44,7 @@ if __name__ == "__main__":
         'host': 'localhost',
         'port': port
     }
-#    response = requests.put(discoveryServiceRequest, json = discoveryServiceData)
+    response = requests.put(discoveryServiceRequest, json = discoveryServiceData)
 
     # Start app
     app.run(port=port)
