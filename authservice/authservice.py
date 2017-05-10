@@ -3,6 +3,7 @@ import requests
 
 from flask import Flask, Blueprint, request, jsonify
 from flask_cors import CORS
+from flask_security import auth_token_required
 from core import db, security, user_datastore
 from users import Users
 app = Flask(__name__)
@@ -11,6 +12,7 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 users = Users()
 
 @bp.route("/validate", methods=["GET"])
+@auth_token_required
 def validate():
     return 'ok'
 
